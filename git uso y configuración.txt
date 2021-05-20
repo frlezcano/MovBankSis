@@ -1,0 +1,43 @@
+Error “Your push would publish a private email address”
+	I experienced the same error: GH007 message as well and used the following to resolve the issue.
+		Go to Setting your commit email address.
+		Follow the Setting your email address for every repository on your computer.
+		Open your GitHub account, and go to Settings → Emails.
+		Select the Keep my email address private check box.
+		Unselect the Block command line pushes that expose my email check box.
+		This may expose your email address though.
+
+En la terminal ingresar los siguientes comandos de git para la configuración global del cliente
+	git config --global user.name "Roberto Lezcano"
+	git config --global user.email "frlezcano@gmail.com"
+
+Para permitir a un cliente git realizar commit y push sin pedir la validación de usuario y contraseña en cada commit
+	1- Generar una clave pública con el comando
+		ssh-keygen -t rsa
+	2- Buscar en el directorio
+		~/.ssh
+	3- Obtener la clave pública con el comando
+		cat ~/.ssh/id_rsa.pub
+	4- Copiar la salida del comando anterior
+		ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZWciSHxn1KVm2ehVd5ggB2zRQTCQcETwAFKeGdYSaQmhS41wSuHjKAIghTme7T0UDyLegza7Wjx3Yu+cYfEJvQENtprOb59+M2HiDbgZsV6vHQhIuT1sOWfv2jGUzzpwJagrxHwkX2h4mTndSAJOPrSnE4GMabOXWPg+/vB97v9vj6RPlUSyA3i24KgJDcCjkeB94G5qDXDKvMe+r4W2OQPUcVREDLp++anMTmOOcQsC4c48qjc5yYgMjbXCXRP+dlMFUA/Lz5NCc1fM5hmgWXxCDB6VLqimfVb/QsdwpkYNK7SSYOtbKIgDTCZp10JjBj6tJ8hSfPI0FsQLjmjjP rlezcano@PC-42520
+	5- Ingresar a la web github de la cuenta git e ir al apartado de Configuración-> SSH and GPG keys-> New SSH key y pegamos la llave pública, dandole una denominación descriptiva del host al que pertene de manera a asociar fácilmente cada calve pública con el host correspondiente.
+	6- En el directorio clonado buscar el directorio .git y editar el archivo config file, buscar la clave 
+		[remote "origin"]
+			url = git@github.com:frlezcano/MovBankSis.git    --> Si la dirección empieza por http debe ir a la página del proyecto y copiar la dirección para la opción clone - ssh
+			
+Comandos de uso normal
+
+	cd existing_folder
+
+	Inicializar un directorio
+		git init
+	Agregar el directorio actual
+		git remote add origin <url del repositorio>
+	Agregar todo el contenido del directorio actual
+		git add .
+	Commitear los cambios
+		git commit
+	Subir los archivos commiteados
+		git push -u origin master
+
+
