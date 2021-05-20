@@ -1,0 +1,19 @@
+import requests
+import json
+
+url="http://192.168.129.171:9003/api/simeac-backend/auth/login"
+_json= {"password" : "dos01", "username" : "jmaubet"}
+_headers= {'accept': 'application/json', 'system': 'sirec', 'Content-Type': 'application/json'}
+
+response=requests.post(url, data=json.dumps(_json), headers=_headers)
+
+datosJson=response.json()
+
+# print(response)
+# print(response.url)
+# print(response.content)
+#
+print("Estado    : "+datosJson['description'])
+print("Usuario   : "+datosJson['username'])
+print("Nombre    : "+datosJson['name'] + " " + dataJson['lastname'])
+print("Id Sesión : "+datosJson['session_id'])
