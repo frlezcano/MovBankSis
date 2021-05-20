@@ -1,0 +1,48 @@
+Primeros pasos
+
+Ya con la instalación (manual) de Python3.8.2, el compando pip3.8 y pyside2 podemos crear un entorno virtual para la aplicación
+esto se debe a que en el sistema operativo están instaladas varias versiones de python (2.7 - 3.7 - 3.8), y nuestra  aplicación 
+podría eventualmente utilizar versiones incorrectas de librerías y herramientas.
+
+1- creamos el <directorio> a utilizar como raíz para nuestro proyecto.
+	mkdir <directorio>
+2- Crear un entorno virtual:
+	python3.8 -m venv <directorio>
+
+La ejecución del comando anterior crea varios archivos en el <directorio>
+	drwxr-xr-x 2 rlezcano rlezcano 4096 abr 26 09:34 bin
+	drwxr-xr-x 2 rlezcano rlezcano 4096 abr 26 09:34 include
+	drwxr-xr-x 3 rlezcano rlezcano 4096 abr 26 09:34 lib
+	lrwxrwxrwx 1 rlezcano rlezcano    3 abr 26 09:34 lib64 -> lib
+	-rw-r--r-- 1 rlezcano rlezcano   75 abr 26 09:34 pyvenv.cfg
+
+Para poder utilizar el entorno virtual que creamos es necesario activarlo con el siguiente comando
+	source ./<directorio>/bin/activate
+	esto devuelve una shell con un prompt como el siguiente
+		(<directorio>) rlezcano@PC-42520:~/$
+	se puede observar el nombre del directorio entre paréntesis.
+
+Verificando versiones de comandos en el entorno virtual
+	pip --version
+	pip 19.2.3 from /home/rlezcano/tmp/venvpy_regmovban/lib/python3.8/site-packages/pip (python 3.8)
+
+	actualizamos pip a una versión más nueva (recomendado)
+		pip install --upgrade pip==20.0.1
+		Verificamos versiones
+			pip --version
+			pip 20.0.1 from /home/rlezcano/tmp/venvpy_regmovban/lib/python3.8/site-packages/pip (python 3.8)
+			es importante notar cómo la instalación sólo reconoce el entorno virtual que hemos creado
+
+	ahora verificamos las versiones de los paquetes instalados por pip
+		pip list
+		Package    Version
+		---------- -------
+		pip        20.0.1 
+		PySide2    5.15.2 
+		setuptools 41.2.0 
+		shiboken2  5.15.2 
+
+	actualizamos setuptools a una versión más nueva (recomendado)
+		pip install --upgrade setuptools
+		setuptools 56.0.0
+

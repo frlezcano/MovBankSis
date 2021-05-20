@@ -1,0 +1,61 @@
+En reunión de fecha 12/05/2021 con Zuny se determina que la planilla con mayor movimiento es:
+Extracto Bancard Noviembre 2020.xlsx
+Por tal motivo se inicia el projecto importando registros de dicha planilla.
+También se señala que dependiendo del tipo de movimiento bancario a registrar se utilizan diferentes
+programas disponibles en las opciones de menú 1 y 3 del sistema integrado de tesorería.
+
+En una primera instancia el programa llamado por la opción 1 fue el analizado para determinar 
+cuales eran las consultas SQL que intervenían en el proceso.
+
+Se aprueba la plantilla excel para ingreso de datos al sistema de importación de movimientos bancarios,
+así como el procedimiento necesario para preparar dicha plantilla.
+
+Del procedimiento
+
+El flujo de trabajo propuesto consiste en:
+1- Recepcionar el archivo excel remitido por el banco
+2- Migrar el archivo excel remitido por el banco a la Plantilla de ingreso de Movimientos Bancarios
+3- Ingreso manual de datos
+4- Inciar el Sistema de Importación de Movimientos Bancarios
+5- Seleccionar en la Pantalla del Sistema de Importación de Movimientos Bancarios la Plantilla excel
+6- Verificar Visualmente en la pantalla del Sistema de Importación de Movimientos Bancarios la correcta importación de la Plantilla excel
+7- Iniciar el proceso de migración de datos a la Base de Datos
+8- Una vez finalizado el proceso el Sistema de Importación de Movimientos Bancarios emitirá un informe en la pantalla donde dependiendo del resultado del proceso mostrará los siguientes mensajes:
+	A- Para el caso de que todas las filas importadas, de la Plantilla excel procesada, fueran migradas correstamente:
+		Cantidad de Registros
+		-------------------------------------- 
+		Procesados					: 999.999
+		Ingresados a la Base de Datos	: 999.999
+
+		Sumatoria Debe : 999.999.999
+		Sumatoria Haber: 999.999.999
+
+		Proceso Finalizado con Exito
+		----------------------------
+	B- Para el caso de que una o varias filas importadas, de la Plantilla excel procesada,no hayan podido ser migradas:
+		Cantidad de Registros
+		-------------------------------------- 
+		Procesados					: 999.999
+		Ingresados a la Base de Datos	: 999.999
+		Con errores					: 999.999		
+
+		Se devuelve la planila <Nombre de planilla excel> con los registros sin procesar.
+9- Para el caso de una importación con errores, el operador podrá abrir la planilla devuelta por el sistema en el punto 8-B y corregir los posibles errores, grabar sus cambios e intentar procesar de nuevo dicha planilla.
+
+
+De los campos del formulario:
+
+	Campo					Forma de Ingreso de datos al Sistema
+
+	Tipo Mov. Bancarios		A MANO - DESDE EXTRACTO
+	Operacion				A MANO
+	Fecha Recaudacion		DIACONT(D) Este campo sólo trae un valor numérico del cual se infiere la fecha
+	Fecha Deposito en Banco	DIACONT(D) Este campo no aparece para el caso específico de la planilla procesada
+	Doc Ref					COMPROBANTE(F)
+	Cod. Banco				A MANO - (Es un datos que se podría ingresar en el formulario previo al proceso de selección del archivo excel)
+	Cta.Cte / Ahorro			A MANO - (Es un datos que se podría ingresar en el formulario previo al proceso de selección del archivo excel)
+	Importe					HABER(J) (Esta planilla sólo ingresa registros con datos en la columna HABER(J) 
+									  para datos en la columna DEBE(I) opción de menú 3)
+	Observacion				A MANO
+
+Dada la cantidad de campos que necesitan la atensión del operador para inferir el valor correspondiente, la automatización del ingreso de datos no puede realizarse de forma directa desde la planilla remitida por el banco. Tampoco es factible utiliar la plantilla remitida porque cada banco utiliza un formato diferente. Atendiendo al escenario que plantea los condicionantes previamente citados se sugiere la utilización de una plantilla con un formato preestablecido al cuál deberán; los operadores del sistema, ceñirse a la hora de migrar las planillas correspondientes. Esto implica un preproceso que corre por cuanta del operador donde podrá determinar los valores de los campos e ingresarlos manualmente, también implica la migración de columnas en el orden requerido por la plantilla aprobada.

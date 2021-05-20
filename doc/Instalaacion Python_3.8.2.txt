@@ -1,0 +1,36 @@
+Instalación manual de Python 3.8.2
+----------------------------------
+Download Python source code using the following command from python official site. 
+You can also download the latest version in place of specified below.
+	cd /home/rlezcano/tmp
+	sudo wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
+
+Then extract the downloaded source archive file
+	sudo tar xzf Python-3.8.2.tgz
+
+Compile Python Source, use the below set of commands to compile Python source code 
+on your system using the altinstall command.
+	cd Python-3.8.2
+	sudo ./configure --enable-optimizations
+	sudo make altinstall
+
+Check Python Version, the installed version of python using the following command. 
+As you have not overwritten the default Python version on the system, So you have 
+to use Python 3.8 as follows:
+	python3.8 -V
+
+Update pip
+	sudo -H pip3.8 install --upgrade pip
+
+Uso de pip
+	rlezcano@PC-42520:~/$ pip3
+	pip3    pip3.8  
+	rlezcano@PC-42520:~/$ pip3 --version
+	pip 21.1 from /usr/local/lib/python3.8/site-packages/pip (python 3.8)
+	rlezcano@PC-42520:~/$ pip3.8 --version
+	pip 21.1 from /usr/local/lib/python3.8/site-packages/pip (python 3.8)
+	rlezcano@PC-42520:~/$ python3.
+	python3.7         python3.7m        python3.8         python3.8-config  
+	rlezcano@PC-42520:~/$ python3.8 --version
+	Python 3.8.2
+	

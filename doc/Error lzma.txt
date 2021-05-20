@@ -1,0 +1,3 @@
+UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
+
+	sudo apt-get install liblzma-dev

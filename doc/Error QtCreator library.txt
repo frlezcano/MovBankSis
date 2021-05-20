@@ -1,0 +1,10 @@
+(libxcb-util.so.1: no se puede abrir el fichero del objeto compartido: No existe el fichero o el directorio)"
+
+/home/rlezcano/Qt/Tools/QtCreator/bin
+
+libxcb-util.so.1 => not found
+
+ldd /home/rlezcano/Qt/Tools/QtCreator/lib/Qt/plugins/platforms/libqxcb.so
+
+sudo ln -s /usr/lib/x86_64-linux-gnu/libxcb-util.so.0.0.0 /usr/lib/x86_64-linux-gnu/libxcb-util.so.1
+

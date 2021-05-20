@@ -1,0 +1,41 @@
+Paso 2: Configurar un entorno virtual
+Los entornos virtuales le permiten tener un espacio aislado en su servidor para proyectos de Python. Esto garantiza que cada uno de sus proyectos pueda tener su propio conjunto de dependencias que no interfieran en ninguno de sus otros proyectos.
+
+Configurar un entorno de programación nos proporciona un mayor control sobre nuestros proyectos de Python y sobre la forma en que se manejan las diferentes versiones de los paquetes. Esto tiene particular importancia al trabajar con paquetes de terceros.
+
+Puede configurar tantos entornos de programación Python como quiera. Cada entorno es básicamente un directorio o una carpeta de su servidor que tiene secuencias de comandos para que actúe como un entorno.
+
+Aunque hay algunas formas de lograr un entorno de programación en Python, en este caso utilizaremos el módulo venv, que forma parte de la biblioteca estándar de Python 3. Instalemos venv escribiendo lo siguiente:
+
+sudo apt install -y python3-venv
+ 
+Una vez instalado esto, estaremos listos para crear entornos. Elegiremos el directorio en el que deseamos disponer nuestros entornos de programación de Python o crearemos un nuevo directorio con mkdir, como a continuación:
+
+mkdir environments
+cd environments
+ 
+Una vez que se encuentre en el directorio en el que desea que estén los entornos, puede crear uno ejecutando el siguiente comando:
+
+python3 -m venv my_env
+ 
+Básicamente, pyvenv configura un nuevo directorio que contiene algunos elementos que podemos ver con el comando ls:
+
+ls my_env
+ 
+Output
+bin include lib lib64 pyvenv.cfg share
+Juntos, estos archivos garantizan que sus proyectos estén aislados del contexto más amplio de su ,servidor de modo que los archivos de sistema y los archivos de proyecto no se mezclen. Esta es una práctica recomendada para el control de versiones y para garantizar que cada uno de sus proyectos tenga acceso a los paquetes particulares que necesita. Python Wheels, un formato de paquete integrado para Python que puede acelerar la producción de su software reduciendo el número de veces que necesita realizar compilaciones, estará en el directorio share de Ubuntu 20.04.
+
+Para utilizar este entorno, debe activarlo escribiendo el siguiente comando que llama a la secuencia de comandos active:
+
+source my_env/bin/activate
+ 
+El símbolo del sistema ahora llevará como prefijo el nombre de su entorno; en este caso, el nombre es my_env. Según la versión de Debian Linux de la que disponga, su prefijo puede ser diferente, pero el nombre de su entorno entre paréntesis debería ser lo primero que vea en su línea:
+
+
+ 
+Este prefijo nos permite saber que el entorno my_env está actualmente activo, lo cual significa que cuando creemos programas aquí estos usarán solo la configuración y los paquetes de este entorno en particular.
+
+Nota: Dentro del entorno virtual, puede utilizar el comando python en lugar de python3 y pip en lugar de pip3, si lo prefiere. Si utiliza Python 3 en su máquina fuera de un entorno, deberá utilizar los comandos python3 y pip3.
+
+Una vez completados estos pasos, su entorno virtual estará listo para utilizarse.

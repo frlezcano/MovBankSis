@@ -1,0 +1,7 @@
+simeac swagger-ui
+
+http://192.168.129.171:9003/swagger-ui.html#/
+
+user: jmaubet
+pass: dos01
+sist: sirec

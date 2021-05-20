@@ -1,0 +1,8 @@
+Valores de Configuración
+------------------------
+defaultUsuario= jmaubet
+defaultBanco  = 7
+defaultCtacte = 600721
+
+filePath = /home/rlezcano/tmp/wservicepy
+fileName = Plantilla

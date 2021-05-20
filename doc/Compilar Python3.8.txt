@@ -1,0 +1,9 @@
+cd /home/rlezcano/tmp/Python-3.8.2
+./configure --enable-optimizations
+make -j 8
+
+Cuando se complete el proceso de compilación, instale los binarios de Python escribiendo:
+
+sudo make altinstall
+
+No utilice el make install estándar, ya que anulará el binario python3 del sistema predeterminado.
