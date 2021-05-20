@@ -11,7 +11,7 @@ class MainWindow(QObject):
     def __init__(self):
         QObject.__init__(self)
 
-        # QTimer - Run Timer
+        ## QTimer - Run Timer
         self.timer = QTimer()
         self.timer.timeout.connect(lambda: self.setTime())
         self.timer.start(1000)
